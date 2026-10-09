@@ -212,11 +212,13 @@
   .send { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: background-color .3s; }
   .send:hover { background: #000; }
   .send[disabled] { opacity: .6; cursor: progress; }
-  .status { position: absolute; left: 0; right: 0; top: 100%; padding: 12px 20px 0; font-size: 13px; color: var(--muted); }
+  .status { position: absolute; left: 0; right: 40%; top: 100%; padding: 12px 20px 0; font-size: 13px; color: var(--muted); }
+  .credit { position: absolute; right: 0; top: 100%; padding: 12px 20px 0; font-size: 13px; color: var(--muted); }
+  .credit a { color: var(--ink); border-bottom: 1px solid currentColor; }
   .status.err { color: var(--error); }
   .sent { position: relative; display: none; grid-row: 1 / span var(--fr, 6); flex-direction: column; justify-content: center; gap: 18px; padding: 24px 24px calc(var(--u) + 24px); outline: none; background: var(--paper); }
   .sent p:not(.small) { font-size: calc(var(--u) * .34); font-weight: 500; line-height: 1.2; letter-spacing: -.02em; }
-  .k-form.is-sent > :not(.sent):not(.status) { display: none; }
+  .k-form.is-sent > :not(.sent):not(.status):not(.credit) { display: none; }
   .k-form.is-sent .sent { display: flex; }
   .again { position: absolute; left: -1px; right: -1px; bottom: -1px; height: calc(var(--u) + 1px); margin: 0; display: flex; align-items: center; justify-content: center; }
 
@@ -435,6 +437,7 @@
         <label class="b consent"><input type="checkbox" name="consent" value="yes" required><span>I agree that Telaro keeps this request to answer it.</span></label>
         <button class="b ink small send" type="submit"><span data-send-label>Send request</span><span aria-hidden="true">→</span></button>
         <p class="status" data-status role="status"></p>
+        <p class="credit">Form by <a href="https://formgong.com" rel="noopener">Formgong</a></p>
         <div class="b sent" tabindex="-1">
           <p class="small">Request received</p>
           <p>Thank you, <span data-sent-name>there</span>. An architect from the atelier will reply within two working days.</p>
